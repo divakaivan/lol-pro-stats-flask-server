@@ -6,11 +6,10 @@ import json
 app = Flask(__name__)
 
 
-lol_stats = pd.read_csv(
-    "./2020_LoL_esports_match_data_from_OraclesElixir_20200916.csv")
+lol_stats = pd.read_csv("./2020_LoL_esports_match_data_from_OraclesElixir_20200916.csv")
 
 
-@app.route('/sample', methods=['GET'])
+@app.route("/sample", methods=["GET"])
 def hello_world():
     lol_stats_sample = lol_stats.head(12)
     lol_stats_sample = lol_stats_sample.to_json(orient="records")
@@ -19,11 +18,10 @@ def hello_world():
     return json.dumps(parsed)
 
 
-@app.route('/', methods=['POST'])
+@app.route("/", methods=["POST"])
 def get_data():
     request_info = request.get_json()
-    requested_lol_stas = lol_stats.loc[lol_stats["league"]
-                                       == request_info["league"]]
+    requested_lol_stas = lol_stats.loc[lol_stats["league"] == request_info["league"]]
 
     requested_lol_stas = requested_lol_stas.to_json(orient="records")
     parsed = json.loads(requested_lol_stas)
