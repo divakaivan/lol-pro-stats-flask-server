@@ -1,13 +1,12 @@
 import pandas as pd
 
-lol_stats = pd.read_csv(
-    "./lol_pro_stats_2020.csv")
+lol_stats = pd.read_csv("./lol_pro_stats_2020.csv")
 # lol_stats["top_pick"] = ""
 # lol_stats["jg_pick"] = ""
 # lol_stats["mid_pick"] = ""
 # lol_stats["bot_pick"] = ""
 # lol_stats["sup_pick"] = ""
-
+#
 # for i in lol_stats.index:
 #     if lol_stats["position"][i] == "team" and lol_stats["side"][i] == "Blue":
 #         lol_stats["top_pick"][i+1] = lol_stats["champion"][i-10]
