@@ -11,7 +11,7 @@ lol_stats = pd.read_csv("./2020_LoL_esports_match_data_from_OraclesElixir_202009
 
 @app.route("/sample", methods=["GET"])
 def hello_world():
-    lol_stats_sample = lol_stats.head(12)
+    lol_stats_sample = lol_stats.head(10)
     lol_stats_sample = lol_stats_sample.to_json(orient="records")
     parsed = json.loads(lol_stats_sample)
     print(parsed[0])
